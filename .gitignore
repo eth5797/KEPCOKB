@@ -1,0 +1,8 @@
+# 내부 문서·스키마는 공개 웹(GitHub Pages)에 올리지 않는다 (로컬에만 보관)
+SPEC.md
+supabase_schema.sql
+
+# 에디터/도구
+.claude/
+.DS_Store
+Thumbs.db
