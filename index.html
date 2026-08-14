@@ -74,8 +74,9 @@ button{cursor:pointer}
   background:transparent;border:0;color:#dbe4ee;padding:5px 9px;border-radius:6px;font-size:13px;line-height:1
 }
 .navgrp button:hover{background:rgba(255,255,255,.13);color:#fff}
-.ymlabel{font-size:16px;font-weight:700;letter-spacing:-.3px;min-width:118px;text-align:center;padding:0 4px}
-.ymlabel span{font-size:12px;color:#9fb0c4;font-weight:500;margin-left:5px}
+.ymlabel{font-size:21px;font-weight:800;letter-spacing:-.5px;min-width:150px;text-align:center;padding:0 6px;color:#fff;white-space:nowrap}
+.ymlabel b{font-weight:800;color:#7fd0ff}
+.ymlabel span{font-size:11.5px;color:#9fb0c4;font-weight:600;margin-left:7px;letter-spacing:0;vertical-align:2px}
 
 .seg{display:flex;background:rgba(255,255,255,.09);border-radius:8px;padding:2px;gap:2px}
 .seg button{background:transparent;border:0;color:#c3d0de;padding:5px 10px;border-radius:6px;font-size:12.5px;line-height:1}
@@ -987,8 +988,8 @@ function renderCalendar(){
   const {start,weeks}=visibleRange();
   const c=UI.cursor;
   $('#ymLabel').innerHTML = UI.view==='month'
-    ? `${c.getFullYear()}. ${pad(c.getMonth()+1)}<span>${['1분기','2분기','3분기','4분기'][Math.floor(c.getMonth()/3)]}</span>`
-    : `${c.getFullYear()}. ${pad(c.getMonth()+1)}<span>${UI.view==='week'?'주간':'2주'}</span>`;
+    ? `${c.getFullYear()}년 <b>${c.getMonth()+1}월</b><span>${['1분기','2분기','3분기','4분기'][Math.floor(c.getMonth()/3)]}</span>`
+    : `${c.getFullYear()}년 <b>${c.getMonth()+1}월</b><span>${UI.view==='week'?'주간':'2주'}</span>`;
 
   const todayIso=iso(new Date());
   const byDate={}; S.events.forEach(e=>(byDate[e.date]=byDate[e.date]||[]).push(e));
