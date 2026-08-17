@@ -355,10 +355,12 @@ body.is-admin .fab{display:inline-flex;align-items:center;gap:7px}
      격자가 화면보다 넓어지므로 .calwrap이 가로로 스크롤된다.
      --mcol = 하루 칸 폭(=배율). 키우면 정보가 더 여유롭고, 줄이면 한 번에 더 많은 날이 보인다. */
   .calwrap{padding:0 0 64px}
-  .cal{--mcol:150px; min-width:0; width:max-content; max-width:none; margin:0}
-  .dow{position:sticky; top:0; grid-template-columns:repeat(7,var(--mcol))}
+  /* 격자를 고정 넓이(--mwide=배율)로 펼치고 가로 스크롤. 열 폭 배분은 데스크톱과 같은
+     --cols 로직을 그대로 사용 → 토·일에 일정이 없으면 자동으로 좁아진다. */
+  .cal{--mwide:1060px; width:var(--mwide); min-width:0; max-width:none; margin:0}
+  .dow{position:sticky; top:0}
   .dow>div{font-size:11px; padding:4px 0}
-  .week{grid-template-columns:repeat(7,var(--mcol)); gap:5px; margin-top:5px}
+  .week{gap:5px; margin-top:5px}
   .cell{min-height:118px}
   .cell.no-ev{min-height:118px}
   .cbody{max-height:none}
