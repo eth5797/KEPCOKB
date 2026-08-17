@@ -436,6 +436,8 @@ body.is-admin .fab{display:inline-flex;align-items:center;gap:7px}
     <button data-v="week">주간</button>
   </div>
 
+  <button class="tb" id="mGridChip" title="모바일에서 카드/격자 전환">격자보기</button>
+
   <button class="tb" id="weekdayBtn" title="토·일 칸을 숨겨 평일 칸을 넓게 씁니다">평일만</button>
 
   <div class="seg" id="densSeg">
@@ -464,7 +466,6 @@ body.is-admin .fab{display:inline-flex;align-items:center;gap:7px}
   <div class="lgsep"></div>
   <button class="fchip" id="mineChip">담당자 필터: 전체</button>
   <button class="fchip" id="emptyChip">빈 날짜 숨기기</button>
-  <button class="fchip" id="mGridChip">격자로 보기</button>
   <div class="spacer" style="flex:1"></div>
   <span class="hint" id="statLine"></span>
 </div>
@@ -1504,7 +1505,7 @@ $$('#viewSeg button').forEach(b=>b.onclick=()=>{ setView(b.dataset.v); render();
 function applyMGrid(){
   document.body.classList.toggle('m-grid',UI.mGrid);
   const b=$('#mGridChip');
-  if(b){ b.textContent=UI.mGrid?'카드로 보기':'격자로 보기'; b.classList.toggle('on',UI.mGrid); }
+  if(b){ b.textContent=UI.mGrid?'카드보기':'격자보기'; b.classList.toggle('on',UI.mGrid); }
   try{ localStorage.setItem('cal-mgrid', UI.mGrid?'1':'0'); }catch(_){}
 }
 $('#mGridChip').onclick=()=>{
